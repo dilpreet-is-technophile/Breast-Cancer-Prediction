@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/main.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+
+    <title>Breast Cancer Prediction</title>
+  </head>
+  <body>
+    <nav class="navbar sticky-top navbar-dark bg-dark" id="navigation">
+      <a class="navbar-brand" href="#">Breast Cancer Prediction</a>
+    </nav>
+
+    <div class="container-fluid firstbanner">
+      <div
+        class="row fullscreen d-flex align-items-center justify-content-start"
+        style="height: 710px;"
+      >
+        <div class="banner-content col-lg-6 col-md-6 col-sm-12"></div>
+        <div class="banner-content col-lg-5 col-md-5 col-sm-12">
+          <h1 class="text-uppercase txt1">
+            Welcome, <br />Check The Risk Of You Having Breast Cancer Now!
+          </h1>
+          <p class="pbanner">
+            Breast cancer is a type of cancer that starts in the breast. Cancer
+            starts when cells begin to grow out of control. <br />There are two
+            main classifications of tumors. One is known as benign and the other
+            as malignant.
+            
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-deck">
+      <div class="card">
+        <img
+          class="card-img-top"
+          src="{{url_for('static', filename='card.jpg')}}"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title" style="color: blueviolet; font-size: xx-large;">What this predicts?</h5>
+          <p class="card-text">
+            This model predicts that by what percent is there possibility of a
+            breast tumor to be "benign" or "malignant".
+            <ul>
+              <li><strong>Benign:</strong> This type of tumor is not dangerous and donot convert into cancer tumor</li>
+              <li><strong>Malignant:</strong> This type of tumor is dangerous and it can spread and become cancer </li>
+          
+            </ul>
+          </p>
+          
+        </div>
+      </div>
+      <div class="card" id="featuresList">
+        <img
+          class="card-img-top"
+          src="{{url_for('static', filename='card1.jpg')}}"
+          alt="Card image cap"
+        />
+        <div class="card-body" >
+          <h5 class="card-title" style="color: blueviolet; font-size: xx-large;">Which Parameters to use?</h5>
+          <p class="card-text">
+            To predict following parameters of the tumor is used
+            <div class="row" style="font-size: smaller;">
+              <div class='col-lg-6 col-md-6 col-sm-12'>
+                <ul>
+                  <li>'area_worst'</li>
+                  <li>'area_mean'</li>
+                  <li>'area_se'</li>
+                  <li>'perimeter_worst'</li>
+                  <li>'perimeter_mean' </li>
+                  <li>'radius_worst'</li>
+                  <li>'radius_mean'</li>
+                  <li>'perimeter_se'</li>
+                </ul>
+              </div>
+              <div class='col-lg-6 col-md-6 col-sm-12'>
+                <ul>
+                  <li>'texture_worst'</li>
+                  <li>'texture_mean'</li>
+                  <li>'concavity_worst'</li>
+                  <li>'radius_se'</li>
+                  <li>'concavity_mean' </li>
+                  <li>'compactness_worst'</li>
+                  <li>'concave points_worst'</li>
+                 
+                </ul>
+              </div>
+            </div>         
+            
+            
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          class="card-img-top"
+          src="{{url_for('static', filename='banner2.jpg')}}"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title" style="color: blueviolet; font-size: xx-large;">How it predicts?</h5>
+          <p class="card-text">
+            <ul>
+              <li>Features like 'area-mean' of tumor and other features are taken</li>
+              <li>On the basis of these features classified as 'benign' or 'malignant'</li>
+              <li>The features can be extracted from a X-Ray image</li>
+              <li>X-Ray image is not used,text data of X-ray image is used</li>
+             
+             
+            </ul>
+            This Model uses features of a tumor such as 'area-mean' of the tumor which are
+            attained using X-ray images of tumors from breast and classifies them as 'benign' or 'malignant'
+            on the basis of these features
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid thirdbanner">
+      <div
+        class="row fullscreen d-flex align-items-center justify-content-start"
+        style="height: 710px;"
+      >
+        <div class="banner-content col-lg-6 col-md-6 col-sm-12"></div>
+        <div class="banner-content col-lg-5 col-md-5 col-sm-12">
+         
+        </div>
+      </div>
+    </div>
+
+
+<h1 style="background-color: blueviolet;">Predict The Type Of Tumor Below</h1>
+
+<div class="card-deck">
+  <div class="card text-center">
+    <div class="card-header">
+      How To Predict?
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Follow The Instructions To Predict</h5>
+      <p class="card-text">
+        <ul>
+          <li>Details of all the features mentioned should be present in a CSV file (refer sample CSV below)</li>
+          <li>CSV stands for Comma Seperated Values</li>
+          <li>File format other than CSV will be considered invalid</li>
+          <li>Any feature containing null or empty values will be considered invalid</li>
+         
+        </ul>
+        The list of features <br>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#featuresLists" style="background-color:blueviolet ;">
+          Features
+        </button>
+        <br>
+        The sample CSV you can use to predict<br>
+        <a href="https://github.com/dilpreet-is-technophile/Breast-Cancer-Prediction/blob/master/benign.csv" target="blank" class="btn btn-info" style="background-color:blueviolet ;">Sample </a>
+      </p>
+
+
+
+      <div class="modal fade" id="featuresLists" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">The List Of Features</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Features should be in given order only
+              <ul>
+                <li>'area_worst'</li>
+                <li>'area_mean'</li>
+                <li>'area_se'</li>
+                <li>'perimeter_worst'</li>
+                <li>'perimeter_mean' </li>
+                <li>'radius_worst'</li>
+                <li>'radius_mean'</li>
+                <li>'perimeter_se'</li>
+                <li>'texture_worst'</li>
+                <li>'texture_mean'</li>
+                <li>'concavity_worst'</li>
+                <li>'radius_se'</li>
+                <li>'concavity_mean' </li>
+                <li>'compactness_worst'</li>
+                <li>'concave points_worst'</li>
+              </ul>
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color:blueviolet ;">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="card text-center">
+    <div class="card-header">
+      Predict Here
+    </div>
+   
+    <div class="card-body">
+      <h5 class="card-title">Upload the CSV file of features here</h5>
+      <br><br>
+      <div>
+        <form action="/uploader" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file1" class="btn btn-info" style="background-color:blueviolet;"></input>
+        <br><br>
+        <button type="submit" class="btn btn-info" style="background-color:blueviolet;" >Predict</button>
+        </form>
+        <br>
+        <button type="button" class="btn btn-info"  style="background-color:blueviolet;" data-toggle="modal" data-target="#Result">View Result</button>
+        
+      </div>
+  
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="Result" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Result of Prediction</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{text1}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+ 
+   
+  </body>
+  <div class="container-fluid footerbtm">
+    <div id="social">
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/dilpreet-singh-codes/"
+        target="_blank">
+        <img src="{{url_for('static', filename='linkedin.png')}}"
+        /></a>
+        
+        <a href="https://github.com/dilpreet-is-technophile"
+          target="_blank">
+          <img src="{{url_for('static', filename='github1.png')}}"
+        /></a>
+
+        <a href="https://medium.com/@n.dilpreetsingh" target="_blank">
+          <img src="{{url_for('static', filename='medium.svg')}}" />
+        </a>
+      </div>
+    </div>
+    <p>Developed by @Dilpreet</p>
+  </div>
+  <div class="container-fluid cpyright">&copy; All right Reserved</div>
+  <script
+  src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+  integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+  crossorigin="anonymous"
+></script>
+</html>

@@ -1,0 +1,63 @@
+body {
+  color: red;
+  background-color: aquamarine;
+  text-align: center !important;
+}
+.navbar-brand {
+  padding-left: 44%;
+}
+.card-img-top {
+  height: 390px !important;
+}
+
+.firstbanner {
+  background: url("../banner.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.pbanner {
+  color: blueviolet !important;
+  font-size: large;
+}
+
+.head1 {
+  background-color: red;
+  margin-right: -1em;
+}
+
+.thirdbanner {
+  background: url("../banner3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.footerbtm {
+  background-image: linear-gradient(to left, #343a40, #343a40);
+  height: 100px;
+}
+.footerbtm p {
+  margin-bottom: 0;
+  text-align: center;
+  color: #f1e7fe;
+}
+.cpyright {
+  margin-bottom: 0;
+  text-align: center;
+  background-color: blueviolet;
+}
+#social {
+  text-align: center;
+  font-size: 40px;
+}
+.social-icons img {
+  height: 40px;
+  width: 40px;
+  transition: 0.5s;
+}
+.social-icons a:hover img {
+  transform: translateY(-10px);
+}
+.social-icons a:hover i {
+  transform: translateY(-10px);
+}
